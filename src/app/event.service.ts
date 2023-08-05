@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Event } from './event';
 
 @Injectable({
@@ -6,18 +8,18 @@ import { Event } from './event';
 })
 export class EventService {
 
+    constructor(private http : HttpClient){}
+
   api = 'https://fredbirds-api.herokuapp.com/';
 
-  async getFutureEvents(months = 3) : Promise<Event[]> {
-      const url = `${this.api}events/future/${months}`;
-      const data = await fetch(url);
-      return await data.json() ?? [];
-  }
+  getFutureEvents(months = 3) : Observable<any> {
+    const url = `${this.api}events/future/${months}`;
+    return this.http.get(url);
+  } 
 
-  async getEventById(eventId : string) : Promise<Event> {
+  getEventById(eventId : string) {
     const url = `${this.api}events/details/${eventId}`;
-    const data = await fetch(url);
-    return await data.json() ?? [];
+    return this.http.get(url);
   }
 
   getEventDate(startDate : Date, endDate : Date) {

@@ -16,26 +16,13 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 export class EventDetailsComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   eventId :  '-1';
-  eventService : EventService = inject(EventService); 
-  eventDetails : Event = {
-    _id : '-1',
-    event: '',
-    start: new Date(),
-    cancelled: false,
-    details: '',
-    end: new Date(),
-    pdfFile: '',
-    date: '',
-    website: '',
-    lat: '',
-    lon: ''
-  };
+  eventDetails : any;
   mapUrl : SafeUrl = '';
   showMap : boolean = false;
 
-  constructor(public sanitizer: DomSanitizer) {
+  constructor(public sanitizer: DomSanitizer, public eventService : EventService) {
     this.eventId = this.route.snapshot.params['id'];
-    this.eventService.getEventById(this.eventId).then((eventDetails : Event) => {
+    this.eventService.getEventById(this.eventId).subscribe((eventDetails) => {
       this.eventDetails = eventDetails;
       this.mapUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.google.com/maps/embed/v1/place?key=AIzaSyCB3Q5szLx_1-UE-WIkFSgA3fFi7-KWFAM&q=${this.eventDetails.lat},${this.eventDetails.lon}&zoom=11`);
       this.showMap = this.eventDetails.lat != undefined && this.eventDetails.lon != undefined;

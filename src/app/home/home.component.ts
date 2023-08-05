@@ -15,11 +15,10 @@ import { EventService } from '../event.service';
 })
 export class HomeComponent {
   eventList : Event[] = [];
-  eventService : EventService = inject(EventService);
   
-  constructor() {
-    this.eventService.getFutureEvents().then((eventList : Event[]) => {
-      eventList.forEach((item) => {
+  constructor(public eventService : EventService) {
+    this.eventService.getFutureEvents().subscribe((eventList) => {
+      eventList.forEach((item : Event) => {
         item.date = this.eventService.getEventDate(item.start, item.end);
       })
       this.eventList = eventList;
