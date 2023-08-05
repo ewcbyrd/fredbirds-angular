@@ -1,0 +1,7 @@
+<p>{{eventDetails.event}}</p>
+<p>{{eventDetails.date}}</p>
+<p>{{eventDetails.website}}</p>
+<div *ngIf="showMap">
+    <iframe width="400px" height="400px%" frameborder="0" style="border:0" [src] = "mapUrl" allowfullscreen>
+    </iframe>
+</div>
