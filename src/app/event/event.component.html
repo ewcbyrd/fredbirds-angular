@@ -1,4 +1,8 @@
-<div class="event">
-    <h3> <a [routerLink]="['/event', event._id]">{{event.event}} ({{event.date}})</a></h3>
-    
-</div>
+<a [routerLink]="['/event', event._id]" class="list-group-item list-group-item-action" >
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{event.event}}</h5>
+      <small>{{event.date}}</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small>And some small print.</small>
+  </a>
