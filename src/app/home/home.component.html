@@ -1,20 +1,20 @@
 <div class="container">
-    <div class="row row-cols-2 gx-5">
-        <div class="col-8">
+    <div class="row gx-5">
+        <div class="col-sm col-md-8">
             <div>
                 <h1 class="welcome">Welcome!</h1>
                 <p>Our members are bird enthusiasts of all skill levels – from beginning to advanced birders – who reside in the greater Fredericksburg, Virginia area. We have been brought together because of our interest in birds and our love of birding. </p>
                 <p>We welcome anyone to join us on one of our upcoming trips – even if you have never birded before – and hope you will consider becoming a member.</p>
             </div>
-            <div>
-                <img class="responsive" src="assets/P1020092.jpeg"/>
+            <div class="px-5">
+                <img class="img-fluid rounded-circle" src="assets/P1020092.jpeg"/>
             </div>
         </div>
     
-    <div class="col-4">
+    <div class="col-sm col-md-4 pt-4 pt-md-0">
         <div>
             <h1 class="welcome">Upcoming Events</h1>
-            <div class="list-group">
+            <div class="list-group pt-2">    
                 <app-event *ngFor="let event of eventList"
                 [event]="event">></app-event>
             </div>

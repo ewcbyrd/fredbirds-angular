@@ -1,27 +1,27 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins" />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Playfair Display"
+/>
+<main>
+  <header class="brand-name">
+    <div class="slds-box header slds-size-large_1-of-1 slds-size-small_1-of-1">
+      <div class="center header1">Fredericksburg Birding Club</div>
+      <div class="center header2">
+        A Local Chapter of the Virginia Society of Ornithology
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a class="active" [routerLink]="['/']">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#club">Club Resources</a></li>
+        <li><a href="#birding">Birding Resources</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Poppins">
-  <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Playfair Display">
-  <main>
-    <header class="brand-name">
-        <div class="slds-box header slds-size-large_1-of-1 slds-size-small_1-of-1">
-            <div class="center header1">Fredericksburg Birding Club</div>
-            <div class="center header2">
-                A Local Chapter of the Virginia Society of Ornithology
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li><a class="active" [routerLink]="['/']">Home</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#club">Club Resources</a></li>
-                <li><a href="#birding">Birding Resources</a></li>
-              </ul>
-        </nav>
-    </header>
-    
-    <section class="content">
-        <router-outlet></router-outlet>
-    </section>
-  </main>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</main>

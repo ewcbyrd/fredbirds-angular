@@ -1,7 +1,39 @@
-<p>{{eventDetails.event}}</p>
-<p>{{eventDetails.date}}</p>
-<p>{{eventDetails.website}}</p>
-<div *ngIf="showMap">
-    <iframe width="400px" height="400px%" frameborder="0" style="border:0" [src] = "mapUrl" allowfullscreen>
-    </iframe>
+<div *ngIf="show">
+  <div class="container">
+    <div class="row gx-5">
+      <div class="col-sm col-md-6">
+        <h1>{{ eventDetails.event }}</h1>
+        <p>{{ eventDetails.start}}</p>
+        <p>{{ eventDetails.details }}</p>
+        <div *ngIf="showMap">
+          <div class="embed-responsive embed-responsive-1by1">
+            <iframe
+              class="embed-responsive-item w-100 rounded"
+              height="400px"
+              [src]="mapUrl"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm col-md-6">
+        <h1>Recent Sightings</h1>
+        <div class="overflow-scroll sightings">
+          <div *ngFor="let sighting of sightings" class="list-group">
+            <div
+              class="list-group-item list-group-item-action flex-column align-items-start"
+            >
+              <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ sighting.comName }}</h5>
+                <small class="fst-italic">{{ sighting.sciName }}</small>
+              </div>
+              <p class="mb-1">{{ sighting.locName }}</p>
+              <small>{{ sighting.obsDt }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
